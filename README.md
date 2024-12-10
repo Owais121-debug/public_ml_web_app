@@ -47,25 +47,32 @@ from sklearn import svm
 from sklearn.metrics import accuracy_score
 import pickle
 
-2. Loading and Exploring the Dataset
+### Loading and Exploring the Dataset
 
 
 X = park.drop(columns=['name', 'status'], axis=1)
 Y = park['status']
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=2)
 
-3. Analyzing the Target Variable
+### Analyzing the Target Variable
 
 
 
 model = svm.SVC(kernel='linear')
 model.fit(X_train, Y_train)
 
-4. Feature and Target Separation
+###Feature and Target Separation
+
 
 
 training_accuracy = accuracy_score(Y_train, model.predict(X_train))
 test_accuracy = accuracy_score(Y_test, model.predict(X_test))
 print(f"Training Accuracy: {training_accuracy}")
 print(f"Test Accuracy: {test_accuracy}")
+
+
+
+
+
+
 
