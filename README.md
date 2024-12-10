@@ -46,3 +46,26 @@ from sklearn.preprocessing import StandardScaler
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 import pickle
+
+
+
+
+X = park.drop(columns=['name', 'status'], axis=1)
+Y = park['status']
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=2)
+
+
+
+
+
+model = svm.SVC(kernel='linear')
+model.fit(X_train, Y_train)
+
+
+
+
+training_accuracy = accuracy_score(Y_train, model.predict(X_train))
+test_accuracy = accuracy_score(Y_test, model.predict(X_test))
+print(f"Training Accuracy: {training_accuracy}")
+print(f"Test Accuracy: {test_accuracy}")
+
